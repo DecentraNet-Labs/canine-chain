@@ -53,6 +53,7 @@ message QueryFileResponse { Files file = 1 [ (gogoproto.nullable) = false ]; }
 
 
 message QueryAllFiles {
+  string owner_address = 1;
   cosmos.base.query.v1beta1.PageRequest pagination = 1;
 }
 
