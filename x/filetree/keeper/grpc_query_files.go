@@ -36,14 +36,14 @@ func (k Keeper) AllFiles(c context.Context, req *types.QueryAllFiles) (*types.Qu
 			if err := k.cdc.Unmarshal(value, &files); err != nil {
 				return nil, status.Error(codes.Internal, err.Error())
 			}
-
-		filess = append(filess, files)
+			filess = append(filess, files)
+		}
 	}
 
 	pageRes, err := query.Paginate(filesStore, req.Pagination, func(_ []byte, value []byte) error {
 		return nil
 	})
-	
+
 	if err != nil {
 		return nil, status.Error(codes.Internal, err.Error())
 	}
